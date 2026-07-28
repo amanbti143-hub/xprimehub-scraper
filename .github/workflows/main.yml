@@ -24,6 +24,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Plugins
-        uses: recloudstream/build-plugin@v1
+        uses: lagradost/build-plugin@master
         with:
           repository: ${{ github.repository }}
