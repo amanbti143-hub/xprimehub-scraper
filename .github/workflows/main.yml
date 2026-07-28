@@ -19,6 +19,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Plugins
-        uses: recloudstream/build-plugin@v1
+        uses: recloudstream/build-plugin@Master
         with:
           repository: ${{ github.repository }}
