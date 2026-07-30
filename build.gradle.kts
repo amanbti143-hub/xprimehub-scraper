@@ -1,6 +1,6 @@
 import com.lagradost.cloudstream3.gradle.CloudstreamExtension
 
-buildscript {apply(plugin = "com.lagradost.cloudstream3.gradle")
+buildscript {
     repositories {
         google()
         mavenCentral()
@@ -9,7 +9,6 @@ buildscript {apply(plugin = "com.lagradost.cloudstream3.gradle")
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
-        // Version yahan fix kar diya gaya hai (master-SNAPSHOT)
         classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
     }
 }
@@ -17,8 +16,10 @@ buildscript {apply(plugin = "com.lagradost.cloudstream3.gradle")
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    
 }
+
+// ✅ Correct location: buildscript ke bahar apply karein
+apply(plugin = "com.lagradost.cloudstream3.gradle")
 
 android {
     compileSdk = 34
