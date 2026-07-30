@@ -23,6 +23,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
+          cache: 'gradle' # Build fast karne ke liye gradle cache add kiya gaya hai
 
       - name: Build Plugins
         uses: lagradost/build-plugin@master
