@@ -25,8 +25,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper
+
       - name: Build Cloudstream Plugin
-        run: gradle make
+        run: ./gradlew make
 
       - name: Upload Plugin Artifact
         uses: actions/upload-artifact@v4
