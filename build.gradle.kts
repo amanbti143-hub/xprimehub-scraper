@@ -9,13 +9,16 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
-        classpath("com.github.recloudstream:gradle:-SNAPSHOT")
+        // Version yahan fix kar diya gaya hai (master-SNAPSHOT)
+        classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
     }
 }
 
-apply(plugin = "com.android.library")
-apply(plugin = "kotlin-android")
-apply(plugin = "com.lagradost.cloudstream3.gradle")
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("com.lagradost.cloudstream3.gradle")
+}
 
 android {
     compileSdk = 34
@@ -34,6 +37,7 @@ android {
     }
 }
 
-configure<CloudstreamExtension> {
-    setRepo(com.lagradost.cloudstream3.gradle.Repo.Plugin)
+cloudstream {
+    // Agar Repo plugin error de, toh is line ko uncomment karein:
+    // setRepo(com.lagradost.cloudstream3.gradle.Repo.Plugin)
 }
