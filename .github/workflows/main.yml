@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -24,9 +22,14 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
-      - name: Build Plugins
-        uses: lagradost/build-plugins@master
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build Cloudstream Plugin
+        run: gradle make
+
+      - name: Upload Plugin Artifact
+        uses: actions/upload-artifact@v4
         with:
-          repository: ${{ github.repository }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Cloudstream-Plugin
+          path: '**/*.cs3'
