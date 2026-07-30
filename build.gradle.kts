@@ -39,6 +39,8 @@ android {
 }
 
 cloudstream {
-    // Agar Repo plugin error de, toh is line ko uncomment karein:
-    // setRepo(com.lagradost.cloudstream3.gradle.Repo.Plugin)
+    / cloudstream {
+    setPluginClass("com.example.XPrimeHubPlugin")
+}
+    // 
 }
