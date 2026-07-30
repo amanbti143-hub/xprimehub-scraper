@@ -28,7 +28,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build Plugins
-        uses: recloudstream/build-plugin
+        uses: recloudstream/build-plugins@master
         with:
           repository: ${{ github.repository }}
         env:
