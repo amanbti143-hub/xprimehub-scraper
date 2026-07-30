@@ -1,6 +1,6 @@
 import com.lagradost.cloudstream3.gradle.CloudstreamExtension
 
-buildscript {
+buildscript {apply(plugin = "com.lagradost.cloudstream3.gradle")
     repositories {
         google()
         mavenCentral()
@@ -17,7 +17,7 @@ buildscript {
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.lagradost.cloudstream3.gradle")
+    
 }
 
 android {
